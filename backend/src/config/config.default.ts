@@ -10,13 +10,13 @@ export default {
   },
   cors: {
     origin: '*',
-  }
+  },
   typeorm: {
     type: 'mysql',
     host: 'localhost',
     port: 3306,
     username: 'root',
-    password: 'wh',
+    password: 'Misaka20001',
     database: 'map',
     synchronize: true, // 生产环境中不建议开启
     logging: false,
@@ -27,7 +27,7 @@ export default {
         host: 'localhost',
         port: 3306,
         username: 'root',
-        password: 'wh',
+        password: 'Misaka20001',
         database: 'map',
         entities: [ Map, Article ],
       },

@@ -26,9 +26,9 @@ export class ArticleController {
     async getArticleById(@Param('articleId') articleId: number) {
         try {
             const article = await this.articleService.getArticleById(articleId);
-            return { succsee: true, title: article.title, content: article.content, message: "获取成功" };
+            return { success: true, title: article.title, content: article.content, message: "获取成功" };
         } catch (error) {
-            return { succsee: false, title: null, content: null, message: "获取失败" };
+            return { success: false, title: null, content: null, message: "获取失败" };
         }
     }
 
@@ -36,9 +36,9 @@ export class ArticleController {
     async getArticleByTitle(@Body() articleTitle: string) {
         try {
             const article = await this.articleService.getArticleByTitle(articleTitle);
-            return { succsee: true, title: article.title, content: article.content, message: "获取成功" };
+            return { success: true, title: article.title, content: article.content, message: "获取成功" };
         } catch (error) {
-            return { succsee: false, title: null, content: null, message: "获取失败" };
+            return { success: false, title: null, content: null, message: "获取失败" };
         }
     }
 

@@ -10,10 +10,10 @@ const Article = () => {
 
   async function postRegionId(regionId) {
     try {
-      const response = await axios.post('http://127.0.0.1:7001/regionId', { id: regionId });
-      if (response.data.status === 200) {
+      const response = await axios.post(`http://127.0.0.1:7001/api/article/getArticle/${regionId}`);
+      if (response.data.success) {
         console.log("读取成功");
-        setMdContent(response.data.body.content);
+        setMdContent(response.data.content);
       } else {
         console.log('Failed to fetch projects:', response.data);
       }
