@@ -21,7 +21,6 @@ export default function Map() {
       fontWeight:'normal',
       fontFamily:"Microsoft YaHei"
     },
-    title: { text: "2023GDP(单位:亿元)" },
     tooltip: {},
     toolbox: {
       show: true,
