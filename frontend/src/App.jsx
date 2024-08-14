@@ -4,8 +4,10 @@ import Home from './pages/Home.jsx';
 import Map from './pages/Map.jsx';
 import ArticalPage from './pages/ArticalPage.jsx';
 import AiButton from './components/AiButton.jsx';
+
 import './App.css';
 
+const songPath = '/path/to/your/song.mp3';
 function App() {
   return (
     <Router>

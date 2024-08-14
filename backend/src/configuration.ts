@@ -17,7 +17,7 @@ import * as crossDomain from '@midwayjs/cross-domain';
       enabledEnvironment: ['local'],
     },
     crossDomain,
-    upload
+    upload,
   ],
   importConfigs: [join(__dirname, './config')],
 })

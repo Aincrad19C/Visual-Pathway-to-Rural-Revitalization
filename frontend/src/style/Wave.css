@@ -31,7 +31,7 @@ p {
   height: 15vh;
   min-height: 100px;
   max-height: 9.375rem;
-  z-index: 1;
+  z-index: -1;
 }
 
 .waves {
@@ -41,6 +41,7 @@ p {
   margin-bottom: -7px;
   min-height: 100px;
   max-height: 150px;
+  z-index: -1;
 }
 
 .content {

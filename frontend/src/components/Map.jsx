@@ -3,23 +3,24 @@ import { useEffect } from "react";
 import axios from "axios";
 import '../style/Map.css';
 import mapInfo from '../assets/mapInfo.json';
+import { Button } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
 
 export default function Map() {
   const stk = [];
   let map;
   const option = {
-    textStyle:{
+    textStyle: {
       color: '#fff',
       fontSize: 12,
       fontWeight: 'normal',
       fontFamily: "Microsoft YaHei"
     },
-    subtextStyle:{
+    subtextStyle: {
       color: '#ccc',
-      fontSize:10,
-      fontWeight:'normal',
-      fontFamily:"Microsoft YaHei"
+      fontSize: 10,
+      fontWeight: 'normal',
+      fontFamily: "Microsoft YaHei"
     },
     tooltip: {},
     toolbox: {
@@ -30,25 +31,28 @@ export default function Map() {
       feature: {
         saveAsImage: {}
       },
-      iconStyle:{
-        normal:{
-          color:'#fff'
+      iconStyle: {
+        normal: {
+          color: '#fff'
         }
       }
     },
     animation: true,
-    animationDuration:1000,
-    animationEasing:'cubicOut',
-    animationDurationUpdate:1000
+    animationDuration: 1000,
+    animationEasing: 'cubicOut',
+    animationDurationUpdate: 1000,
   };
   const navigate = useNavigate();
-  const onPointClicked = () => {
-    navigate('/artical');
+  const onPointClicked = (id) => {
+    navigate(`/artical?id=${id}`);
   };
+
   const renderMap = (zoneName) => {
     console.log(zoneName);
     axios.get(`https://geo.datav.aliyun.com/areas_v3/bound/${mapInfo[zoneName].id}_full.json`).then(res => {
       echarts.registerMap(zoneName, res.data);
+      const marks = mapInfo[zoneName].marks;
+      const ProvId = mapInfo[zoneName].id;
       option.series = [
         {
           name: zoneName,
@@ -57,7 +61,6 @@ export default function Map() {
           label: {
             show: true
           },
-          // 只在二级地图上添加标记点
           ...(stk.length > 1 && {
             markPoint: {
               symbol: 'pin',
@@ -65,20 +68,21 @@ export default function Map() {
               itemStyle: {
                 color: '#f00'
               },
-              data: [
-                {
-                  name: '北京', value: 100, coord: [122.2030363, 29.9873344]
-                }
-              ]
+              data: marks
             }
           }),
         },
       ];
+  
       map.setOption(option);
       map.off('click'); // 移除之前的点击事件监听器
       map.on('click', (params) => {
-        if (params.componentType === 'markPoint' && params.name === '北京') {
-          onPointClicked();
+        // 检查点击的是否是标记点
+        if (params.componentType === 'markPoint') {
+          const pointId = marks.findIndex(mark => mark.name === params.name);
+          if (pointId !== -1) {
+            onPointClicked(ProvId + pointId + 1); //跳转，url传递id
+          }
         } else if (mapInfo[params.name]) {
           stk.push(params.name);
           renderMap(params.name);
@@ -86,7 +90,6 @@ export default function Map() {
       });
     });
   };
-
   useEffect(() => {
     if (stk.length > 0) {
       return;
@@ -95,15 +98,12 @@ export default function Map() {
     stk.push("中华人民共和国");
     renderMap("中华人民共和国");
   }, []);
-  
+
   const back = () => {
     if (stk.length > 1) {
       stk.pop();
-      // 销毁当前地图实例
       map.dispose();
-      // 重新初始化一个新的地图实例
       map = echarts.init(document.getElementById('map'));
-      // 重新渲染上一级地图
       renderMap(stk[stk.length - 1]);
     }
   };
@@ -111,8 +111,8 @@ export default function Map() {
   const buttonStyles = {
     zIndex: 1,
     position: "absolute",
-    top: "5%",
-    left: "1%"
+    top: "10%",
+    left: "30%"
   };
 
   return (
@@ -121,7 +121,7 @@ export default function Map() {
       top: "4vh",
     }}>
       <div id="map"></div>
-      <button style={buttonStyles} onClick={back}>回退</button>
+      <Button style={buttonStyles} onClick={back}>回退</Button>
     </div>
   );
 }
