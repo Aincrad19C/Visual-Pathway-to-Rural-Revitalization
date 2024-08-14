@@ -9,7 +9,38 @@ export default function Map() {
   const stk = [];
   let map;
   const option = {
-    // ...其他配置项保持不变
+    textStyle:{
+      color: '#fff',
+      fontSize: 12,
+      fontWeight: 'normal',
+      fontFamily: "Microsoft YaHei"
+    },
+    subtextStyle:{
+      color: '#ccc',
+      fontSize:10,
+      fontWeight:'normal',
+      fontFamily:"Microsoft YaHei"
+    },
+    title: { text: "2023GDP(单位:亿元)" },
+    tooltip: {},
+    toolbox: {
+      show: true,
+      orient: 'vertical',
+      left: 'right',
+      top: 'center',
+      feature: {
+        saveAsImage: {}
+      },
+      iconStyle:{
+        normal:{
+          color:'#fff'
+        }
+      }
+    },
+    animation: true,
+    animationDuration:1000,
+    animationEasing:'cubicOut',
+    animationDurationUpdate:1000
   };
   const navigate = useNavigate();
   const onPointClicked = () => {
