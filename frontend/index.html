@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>视觉乡途</title>
+  <style>
+    html, body {
+        margin: 0;
+        overflow: hidden;
+    }
+    canvas {
+        width: 20vw;
+        height: 50vh;
+        display: block;
+        position: absolute; /* 设置为绝对定位，使其不影响其他元素 */
+        top: 350px;
+        left: -50px;
+        z-index: 1; /* 如果需要，可以调整z-index来控制层级 */
+        background-color: transparent; /* 设置背景为透明 */
+    }
+  </style>
+  <!-- Live2DCubismCore script -->
+  <script src = "./live2dcubismcore.js"></script>
+  <!-- Build script -->
+  <script type="module" crossorigin src="./index-52xUb3nL.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script>
+		L2Dwidget.init({
+			display: {
+				superSample: 2,
+				width: 150,
+				height: 400,
+				position: "left",
+				hOffset: 0,
+				vOffset: 0,
+			},
+		});
+	</script>
+</body>
+
+</html>
