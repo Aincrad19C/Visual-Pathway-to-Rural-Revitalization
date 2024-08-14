@@ -3,15 +3,13 @@ import { useState } from 'react';
 import Header from '../components/Header.jsx';
 import MapComponent from '../components/Map.jsx';
 import BackgroundImageComponent from '../components/Background.jsx';
-import { useNavigate } from 'react-router-dom';
+
 import { Button } from '@material-ui/core';
+import Wave from "../components/Wave.jsx";
 
 function Map() {
   const [count, setCount] = useState(0);
-  const navigate = useNavigate();
-  const navigateToNewRoute = () => {
-    navigate('/artical')
-  };
+
 
   // 内联样式，指定按钮的位置
   const buttonStyle = {
@@ -27,8 +25,8 @@ function Map() {
       <Header />
       <MapComponent />
       {/* 添加一个按钮，点击后跳转到指定路由 */}
-      <Button style={buttonStyle} onClick={navigateToNewRoute}>Go to New Route</Button>
       <BackgroundImageComponent/>
+      <Wave/>
     </>
   );
 }
