@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Header from '../components/Header.jsx';
 import MapComponent from '../components/Map.jsx';
+import BackgroundImageComponent from '../components/Background.jsx';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 
@@ -27,6 +28,7 @@ function Map() {
       <MapComponent />
       {/* 添加一个按钮，点击后跳转到指定路由 */}
       <Button style={buttonStyle} onClick={navigateToNewRoute}>Go to New Route</Button>
+      <BackgroundImageComponent/>
     </>
   );
 }

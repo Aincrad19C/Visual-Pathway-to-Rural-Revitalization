@@ -17,6 +17,9 @@ const ButtonToMap = () => {
   const navigate = useNavigate();
 
   const buttonStyles = {
+    position: "fixed",
+    top:"55%",
+    left:"48%",
     padding: 0, // 移除内边距
     width: '60px',
     height: '60px',
@@ -33,9 +36,9 @@ const ButtonToMap = () => {
   };
 
   const iconStyles = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
+    position: 'fixed',
+    top: '60%',
+    left: '50.1%',
     transform: 'translate(-50%, -50%)', // 向右移动4px
   };
 

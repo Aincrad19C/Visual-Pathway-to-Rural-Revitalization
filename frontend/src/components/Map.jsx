@@ -21,15 +21,6 @@ export default function Map() {
       fontWeight:'normal',
       fontFamily:"Microsoft YaHei"
     },
-    visualMap: {
-      min: 2000,
-      realtime: false,
-      calculable: true,
-      inRange: {
-        color: ['lightskyblue', 'yellow', 'orangered']
-      },
-    },
-    title: { text: "2023GDP(单位:亿元)" },
     tooltip: {},
     toolbox: {
       show: true,
@@ -55,7 +46,6 @@ export default function Map() {
     console.log(zoneName);
     axios.get(`https://geo.datav.aliyun.com/areas_v3/bound/${mapInfo[zoneName].id}_full.json`).then(res => {
       echarts.registerMap(zoneName, res.data);
-      option.visualMap.max = zoneName.at(zoneName.length - 1) === "国" ? 150000 : 30000
       option.series = [
         {
           name: zoneName,
@@ -68,7 +58,6 @@ export default function Map() {
           label: {
             show: true
           },
-          data: mapInfo[zoneName].data
         },
       ]
       map.setOption(option);
@@ -108,7 +97,10 @@ export default function Map() {
   }
 
   return (
-      <div id="map-container">
+      <div id="map-container" style={{
+        position: "relative",
+        top: "4vh",
+      }}>
         <div id="map"></div>
         <button style={buttonStyles} onClick={back}>回退</button>
       </div>
