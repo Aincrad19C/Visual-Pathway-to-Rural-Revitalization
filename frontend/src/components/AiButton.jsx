@@ -5,24 +5,25 @@ import axios from 'axios';
 const ButtonInput = ({ position }) => {
   const [expanded, setExpanded] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const [bubbleText, setBubbleText] = useState('666'); // 新增状态，用于保存聊天气泡文本
+  const [bubbleText, setBubbleText] = useState('666'); // 用于保存聊天气泡文本
+  const [showBubble, setShowBubble] = useState(false); // 用于控制聊天气泡的显示
 
-  // 处理点击按钮事件
   const handleButtonClick = () => {
     setExpanded(true);
   };
 
-  // 处理输入框内容变化
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
 
-  // 处理提交事件
   const handleSubmit = async () => {
     try {
+      setShowBubble(true);
+      setBubbleText("思考中...")
       const res = await axios.post('http://127.0.0.1:7001/aiSumbit', { content: inputValue });
-      if (res.data.status === 200) {
-        setBubbleText(res.data.body.message); // 假设后端返回的数据中包含一个消息字段
+      if (res.status === 200) {
+        setShowBubble(true); // 显示聊天气泡
+        setBubbleText(res.data.result); // 假设后端返回的数据中包含一个消息字段
         cancelSession(); // 提交成功后取消会话
       } else {
         alert('提交失败');
@@ -32,10 +33,13 @@ const ButtonInput = ({ position }) => {
     }
   };
 
-  // 取消会话（收起输入框）
   const cancelSession = () => {
     setExpanded(false);
     setInputValue('');
+  };
+
+  const handleCloseBubble = () => {
+    setShowBubble(false); // 关闭聊天气泡
   };
 
   return (
@@ -63,9 +67,10 @@ const ButtonInput = ({ position }) => {
           </button>
         </div>
       )}
-      {bubbleText && ( // 如果有聊天气泡文本，则显示聊天气泡
+      {showBubble && ( // 使用 showBubble 状态来控制聊天气泡的显示
         <div className="chat-bubble">
           {bubbleText}
+          <button onClick={handleCloseBubble} className="close-bubble-button">&times;</button>
         </div>
       )}
     </div>

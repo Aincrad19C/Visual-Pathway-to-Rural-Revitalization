@@ -65,3 +65,6 @@
     border-style: solid;
     border-color: transparent #f0f0f0 transparent transparent; /* 尖角的颜色和透明度 */
   }
+  .close-bubble-button {
+    z-index: 20;
+  }
