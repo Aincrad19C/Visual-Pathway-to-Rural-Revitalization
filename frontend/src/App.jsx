@@ -13,12 +13,14 @@ function App() {
     <Router>
       <div>
         <AiButton position={{ top: '450px', left: '150px',zIndex: 2 }}/>
+        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/map" element={<Map />} />
           <Route path="artical" element={<ArticalPage />}/>
           {/* 其他路由 */}
         </Routes>
+        
       </div>
     </Router>
   );

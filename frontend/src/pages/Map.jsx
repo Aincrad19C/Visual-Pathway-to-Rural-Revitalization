@@ -1,14 +1,20 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState , useEffect  } from 'react';
 import Header from '../components/Header.jsx';
 import MapComponent from '../components/Map.jsx';
 import BackgroundImageComponent from '../components/Background.jsx';
-
+import '../style/Transition.css'; // Import the CSS file for transitions
 import { Button } from '@material-ui/core';
 import Wave from "../components/Wave.jsx";
 
 function Map() {
   const [count, setCount] = useState(0);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // Set the page to visible after it mounts
+    setVisible(true);
+  }, []);
 
 
   // 内联样式，指定按钮的位置
@@ -21,13 +27,13 @@ function Map() {
   };
 
   return (
-    <>
+    <div className={`page-transition ${visible ? 'visible' : ''}`}>
       <Header />
       <MapComponent />
       {/* 添加一个按钮，点击后跳转到指定路由 */}
       <BackgroundImageComponent/>
       <Wave/>
-    </>
+    </div>
   );
 }
 
