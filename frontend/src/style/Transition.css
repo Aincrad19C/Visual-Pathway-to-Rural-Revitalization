@@ -1,0 +1,14 @@
+/* src/style/ArticalPage.css */
+.page-transition {
+    opacity: 0; /* Start fully dark */
+    transition: opacity 1s ease-in-out; /* Transition duration */
+    /* filter: brightness(0.3);  */
+    /* transition: filter 1s ease-in-out;  */
+    
+}
+  
+  .page-transition.visible {
+    opacity: 1;
+    /* filter: brightness(1);  */
+  }
+  

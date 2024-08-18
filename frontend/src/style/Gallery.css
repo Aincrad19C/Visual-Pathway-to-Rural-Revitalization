@@ -1,0 +1,57 @@
+/* Gallery.css */
+.gallery-container {
+  width: 200px; /* 画廊宽度 */
+  height: calc(100vh - 64px - 10px); /* 计算剩余高度，减去上边栏高度和底部缝隙 */
+  overflow: hidden; /* 隐藏滚动条 */
+  position: absolute;
+  top: 70px; /* 从上边栏下方开始 */
+  right: 0; /* 画廊固定在页面右侧 */
+  margin: 0;
+  
+  transition: overflow 0.3s; /* 添加过渡效果 */
+}
+
+.gallery-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-image {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px; /* 图片间距 */
+  transition: transform 0.3s; /* 添加缩放效果的过渡 */
+}
+
+/* 图片悬停时略微放大 */
+.gallery-image:hover {
+  transform: scale(1.1); /* 略微放大图片 */
+}
+
+/* 放大图片的样式 */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8); /* 黑色背景 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  visibility: hidden; /* 初始不可见 */
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.overlay.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}

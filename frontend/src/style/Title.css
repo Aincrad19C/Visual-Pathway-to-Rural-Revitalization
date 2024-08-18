@@ -1,0 +1,31 @@
+/* Title.css */
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed; /* 使用fixed定位 */
+  top: 45%; /* 从顶部向下偏移50% */
+  left: 50%; /* 从左侧向右偏移50% */
+  transform: translate(-50%, -50%); /* 使用transform进行位移，使标题居中 */
+  margin-top: 0; /* 移除顶部外边距，因为我们使用了fixed定位 */
+  width: 100%; /* 宽度设置为100% */
+  height: auto; /* 高度自适应 */
+  z-index: 10; /* 确保标题在其他内容之上 */
+}
+
+.title {
+  font-family: 'ArtisticFont', sans-serif; /* 替换为实际的字体名称 */
+  font-size: 48px; /* 根据需要调整字号 */
+  color: #ffffff; /* 字体颜色 */
+  margin: 0; /* 移除边距，因为.title-container已经居中了 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* 添加轻微的阴影，增加立体感 */
+  font-weight: bold; /* 字体加粗 */
+}
+
+/* 响应式样式保持不变 */
+@media (max-width: 768px) {
+  .title {
+      font-size: 36px; /* 在小屏幕上减小字号 */
+  }
+}

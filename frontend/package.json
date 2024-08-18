@@ -1,0 +1,52 @@
+{
+  "name": "vite-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@mui/material": "^5.16.4",
+    "@tanstack/react-table": "^8.19.3",
+    "antd": "^5.20.0",
+    "autoprefixer": "^10.4.19",
+    "axios": "^1.7.2",
+    "babel-runtime": "^6.26.0",
+    "classie": "^1.0.0",
+    "echarts": "^5.5.1",
+    "element-theme-default": "^1.4.13",
+    "md-editor-rt": "^4.0.0",
+    "npm": "^10.8.2",
+    "oh-my-live2d": "^0.19.3",
+    "postcss": "^8.4.39",
+    "prop-types": "^15.8.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^9.0.1",
+    "react-music-player": "^1.0.3",
+    "react-router-dom": "^6.25.1",
+    "recharts": "^2.12.7",
+    "rehype-katex": "^7.0.0",
+    "rehype-raw": "^7.0.0",
+    "remark-math": "^6.0.0",
+    "tailwindcss": "^3.4.6"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.3",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "raw-loader": "^4.0.2",
+    "vite": "^5.3.4"
+  }
+}
