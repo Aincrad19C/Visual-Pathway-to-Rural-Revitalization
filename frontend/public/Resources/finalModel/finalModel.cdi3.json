@@ -1,0 +1,64 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamEyeLOpen",
+			"GroupId": "",
+			"Name": "左眼　开闭"
+		},
+		{
+			"Id": "ParamEyeLSmile",
+			"GroupId": "",
+			"Name": "左眼　微笑"
+		},
+		{
+			"Id": "ParamEyeROpen",
+			"GroupId": "",
+			"Name": "右眼　开闭"
+		},
+		{
+			"Id": "ParamEyeRSmile",
+			"GroupId": "",
+			"Name": "右眼　微笑"
+		},
+		{
+			"Id": "ParamMouthOpenY",
+			"GroupId": "",
+			"Name": "嘴　张开和闭合"
+		},
+		{
+			"Id": "Param",
+			"GroupId": "",
+			"Name": "手臂小幅摆动"
+		},
+		{
+			"Id": "Param2",
+			"GroupId": "",
+			"Name": "摇头"
+		},
+		{
+			"Id": "Param3",
+			"GroupId": "",
+			"Name": "摇头 右"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": [
+		{
+			"Id": "Part",
+			"Name": "五官分离"
+		},
+		{
+			"Id": "Part2",
+			"Name": "线稿+上色"
+		},
+		{
+			"Id": "Part3",
+			"Name": "四肢"
+		},
+		{
+			"Id": "Part4",
+			"Name": "草稿"
+		}
+	]
+}

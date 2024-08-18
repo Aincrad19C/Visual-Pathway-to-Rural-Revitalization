@@ -46,7 +46,7 @@ export default function Map() {
 
   const renderMap = (zoneName) => {
     console.log(zoneName);
-    axios.get(`https://geo.datav.aliyun.com/areas_v3/bound/${mapInfo[zoneName].id}_full.json`).then(res => {
+    axios.post(`http://127.0.0.1:7001/getMap/getInfo`,{name:zoneName}).then(res => {
       echarts.registerMap(zoneName, res.data);
       const marks = mapInfo[zoneName].marks;
       const ProvId = mapInfo[zoneName].id;

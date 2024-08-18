@@ -13,7 +13,7 @@ export default {
   },
   typeorm: {
     type: 'mysql',
-    host: 'localhost',
+    host: 'db',
     port: 3306,
     username: 'root',
     password: 'Misaka20001',
@@ -24,7 +24,7 @@ export default {
       // 这里可以定义多个数据源
       default: {
         type: 'mysql',
-        host: 'localhost',
+        host: 'db',
         port: 3306,
         username: 'root',
         password: 'Misaka20001',

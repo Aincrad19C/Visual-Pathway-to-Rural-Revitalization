@@ -1,15 +1,15 @@
 {
 	"Version": 3,
 	"FileReferences": {
-		"Moc": "OIP.moc3",
+		"Moc": "finalModel.moc3",
 		"Textures": [
-			"OIP.1024/texture_00.png"
+			"finalModel.1024/texture_00.png"
 		],
-		"DisplayInfo": "OIP.cdi3.json",
+		"DisplayInfo": "finalModel.cdi3.json",
 		"Motions": {
 			"Idle": [
 				{
-					"File": "Scene1.motion3.json"
+					"File": "finalModel_head01.motion3.json"
 				}
 			]
 		}
