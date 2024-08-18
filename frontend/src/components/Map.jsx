@@ -7,7 +7,7 @@ import { Button } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
 
 export default function Map() {
-  const stk = [];
+  let stk = [];
   let map;
   const option = {
     textStyle: {
@@ -98,21 +98,29 @@ export default function Map() {
     });
   };
   useEffect(() => {
-    if (stk.length > 0) {
-      return;
-    }
     map = echarts.init(document.getElementById('map'));
     stk.push("中华人民共和国");
     renderMap("中华人民共和国");
   }, []);
 
   const back = () => {
-    if (stk.length > 1) {
-      stk.pop();
+    stk = [];
+    if (map) {
       map.dispose();
-      map = echarts.init(document.getElementById('map'));
-      renderMap(stk[stk.length - 1]);
     }
+    // 重新初始化地图
+    map = echarts.init(document.getElementById('map'));
+    stk.push("中华人民共和国");
+    renderMap("中华人民共和国");
+
+    stk = [];
+    if (map) {
+      map.dispose();
+    }
+    // 重新初始化地图
+    map = echarts.init(document.getElementById('map'));
+    stk.push("中华人民共和国");
+    renderMap("中华人民共和国");
   };
 
   const buttonStyles = {
