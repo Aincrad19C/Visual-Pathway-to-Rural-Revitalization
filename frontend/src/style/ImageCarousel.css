@@ -1,0 +1,65 @@
+.imgs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -9;
+    background-color: #363636;
+    overflow: hidden;
+  }
+  
+  .imgs ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .imgs .item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0;
+    animation: imageAnimation 30s linear infinite 0s;
+  }
+  
+  @keyframes imageAnimation {
+    0%, 100% {
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+    10% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    30% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    40% {
+      opacity: 0;
+      transform: scale(1.1);
+    }
+  }
+  
+  /* 根据需要添加额外的动画延迟 */
+  .imgs .item:nth-child(2) {
+    animation-delay: 6s;
+  }
+  .imgs .item:nth-child(3) {
+    animation-delay: 12s;
+  }
+  .imgs .item:nth-child(4) {
+    animation-delay: 18s;
+  }
+  .imgs .item:nth-child(5) {
+    animation-delay: 24s;
+  }
+  /* ... 你可以继续添加更多的 nth-child 选择器来匹配Vue组件中的动画延迟 */
