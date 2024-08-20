@@ -2,11 +2,11 @@ import * as axios from 'axios';
 
 const client = axios.default;
 
-client.get('backend:7001').then((response) => {
+client.get('http://backend:7001').then((response) => {
     console.log(response);
 })
 
-client.post('backend:7001/task/create', {
+client.post('http://backend:7001/task/create', {
     name:"界面",
     description:"设计界面"
 },
