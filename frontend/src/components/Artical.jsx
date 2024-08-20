@@ -10,7 +10,7 @@ const Article = () => {
 
   async function postRegionId(regionId) {
     try {
-      const response = await axios.post(`http://backend:7001/api/article/getArticle/${regionId}`);
+      const response = await axios.post(`http://146.56.205.18:7001/api/article/getArticle/${regionId}`);
       if (response.data.success) {
         console.log("读取成功");
         setMdContent(response.data.content);

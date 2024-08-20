@@ -20,7 +20,7 @@ const ButtonInput = ({ position }) => {
     try {
       setShowBubble(true);
       setBubbleText("思考中...")
-      const res = await axios.post('http://backend:7001/aiSumbit', { "content": inputValue });
+      const res = await axios.post('http://146.56.205.18:7001/aiSumbit', { "content": inputValue });
       if (res.status === 200) {
         setShowBubble(true); // 显示聊天气泡
         setBubbleText(res.data.result); // 假设后端返回的数据中包含一个消息字段

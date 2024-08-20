@@ -1,19 +1,11 @@
 version: '3'
 
 services:
-  frontend:
-    build: ./frontend
-    ports:
-      - "800:80"
-    networks:
-      - mynetwork
 
   backend:
     build: ./backend
     ports:
       - "7001:7001"
-    networks:
-      - mynetwork
 
   db:
     image: mysql:5.7 # 使用官方MySQL 5.7镜像
@@ -25,12 +17,7 @@ services:
       - "3306:3306" # 将容器的3306端口映射到宿主机的127.0.0.1的3306端口
     volumes:
       - db_data:/var/lib/mysql # 持久化MySQL数据
-    networks:
-      - mynetwork
 
 volumes:
   db_data:
     # 定义一个卷来持久化MySQL数据
-
-networks:
-  mynetwork:
